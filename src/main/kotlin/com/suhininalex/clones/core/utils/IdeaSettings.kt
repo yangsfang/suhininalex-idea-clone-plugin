@@ -38,6 +38,8 @@ class IntProperty(val defaultValue: Int, val projectScope: Boolean = false) {
     }
 }
 
-private fun propertiesComponent(projectScope: Boolean): PropertiesComponent =
-    if (projectScope && CurrentProject != null) PropertiesComponent.getInstance(CurrentProject)
-    else PropertiesComponent.getInstance()
+private fun propertiesComponent(projectScope: Boolean): PropertiesComponent {
+    val currentProject = CurrentProject
+    return if (projectScope && currentProject != null) PropertiesComponent.getInstance(currentProject)
+          else PropertiesComponent.getInstance()
+}

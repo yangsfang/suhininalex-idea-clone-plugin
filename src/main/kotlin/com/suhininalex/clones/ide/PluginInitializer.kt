@@ -4,6 +4,7 @@ import com.intellij.notification.Notification
 import com.intellij.notification.NotificationType
 import com.intellij.notification.Notifications
 import com.intellij.openapi.project.Project
+import com.intellij.openapi.startup.ProjectActivity
 import com.intellij.openapi.startup.StartupActivity
 import com.suhininalex.clones.core.utils.Application
 import com.suhininalex.clones.core.utils.Logger
@@ -13,9 +14,9 @@ import com.suhininalex.clones.ide.configuration.PluginLabels
 import nl.komponents.kovenant.task
 import nl.komponents.kovenant.then
 
-class PluginInitializer : StartupActivity {
+class PluginInitializer : ProjectActivity {
 
-    override fun runActivity(project: Project) {
+    override suspend fun execute(project: Project) {
         Logger.log("[Initializer] Startup")
         project.addBulkFileListener(FileListener())
         CloneFinderIndex.rebuild(project)

@@ -47,7 +47,7 @@ val Project.fileIndex: ProjectFileIndex
         }
 
 fun PsiFile.isSourceFile(): Boolean =
-        project.fileIndex.isContentSourceFile(virtualFile)
+        project.fileIndex.isInSourceContent(virtualFile)
 
 fun PsiFile.isTestFile(): Boolean =
         TestSourcesFilter.isTestSources(virtualFile, project)
