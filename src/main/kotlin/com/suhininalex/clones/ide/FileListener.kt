@@ -6,7 +6,7 @@ import com.intellij.openapi.vfs.newvfs.events.VFileEvent
 import com.intellij.openapi.vfs.newvfs.events.VFileMoveEvent
 import com.suhininalex.clones.core.CloneIndexer
 
-class FileListener(): BulkFileListener {
+class FileListener : BulkFileListener {
 
     override fun before(events: List<VFileEvent>) {
         events

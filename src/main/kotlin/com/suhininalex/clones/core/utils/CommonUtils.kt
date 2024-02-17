@@ -95,7 +95,7 @@ fun <T> callInEventQueue(body: ()->T): T {
     return result!!
 }
 
-fun SwingTreeNode(userObject: Any, children: List<MutableTreeNode>): DefaultMutableTreeNode {
+fun swingTreeNode(userObject: Any, children: List<MutableTreeNode>): DefaultMutableTreeNode {
     return DefaultMutableTreeNode(userObject).apply {
         children.forEach {
             this.add(it)

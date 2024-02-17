@@ -95,8 +95,8 @@ fun SuffixTree<SourceToken>.getAllSequenceClasses(id: Long, minTokenLength: Int)
     val visitedNodes = HashSet<Node>()
     for (branchNode in this.getAllLastSequenceNodes(id)) {
         for (currentNode in branchNode.riseTraverser()){
-            if (visitedNodes.contains(currentNode)) break;
-            visitedNodes.add(currentNode)
+            if (visitedNodes.contains(currentNode)) break
+          visitedNodes.add(currentNode)
             classes.addIf(TreeCloneClass(currentNode)) {it.length > minTokenLength}
         }
     }

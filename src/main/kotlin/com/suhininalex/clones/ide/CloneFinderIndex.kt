@@ -8,7 +8,7 @@ import com.intellij.openapi.roots.GeneratedSourcesFilter
 import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.psi.PsiFile
 import com.intellij.psi.PsiManager
-import com.intellij.psi.search.EverythingGlobalScope
+import com.intellij.psi.search.GlobalSearchScope
 import com.intellij.util.indexing.*
 import com.intellij.util.io.EnumeratorIntegerDescriptor
 import com.intellij.util.io.KeyDescriptor
@@ -24,7 +24,7 @@ class CloneFinderIndex : ScalarIndexExtension<Int>(){
         val NAME: ID<Int, Void> = ID.create("CloneFinderIndexer")
 
         fun enshureUpToDate(project: Project){
-            FileBasedIndex.getInstance().ensureUpToDate(NAME, project, EverythingGlobalScope(project))
+            FileBasedIndex.getInstance().ensureUpToDate(NAME, project, GlobalSearchScope.everythingScope(project))
         }
 
         fun rebuild(project: Project){
@@ -65,7 +65,8 @@ class CloneFinderIndexer : DataIndexer<Int, Void, FileContent> {
             Application.invokeLater{
                 val title = PluginLabels.getMessage("warning-memory-issue-title")
                 val message = PluginLabels.getMessage("warning-memory-issue-message")
-                Notifications.Bus.notify(Notification("Actions", title, message, NotificationType.WARNING))
+                Notifications.Bus.notify(Notification("Duplicated Code Detection Memory Warning",
+                        title, message, NotificationType.WARNING))
             }
         }
     }

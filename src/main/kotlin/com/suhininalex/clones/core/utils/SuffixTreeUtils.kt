@@ -19,7 +19,7 @@ fun Node.riseTraverser() = object: Iterable<Node> {
 fun Node.descTraverser() = riseTraverser().reversed()
 
 fun Node.lengthToRoot() =
-        riseTraverser().sumBy { it.parentEdge?.length ?: 0 }
+        riseTraverser().sumOf { it.parentEdge?.length ?: 0 }
 
 val Edge.length: Int
     get() = end - begin + 1

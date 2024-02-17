@@ -6,7 +6,7 @@ import com.suhininalex.clones.core.utils.IntProperty
 
 object PluginSettings: IdeaSettings(nameSpace = "clone_finder") {
 
-    private object defaults {
+    private object Defaults {
         val minCloneLength = 40
         val coverageSkipFilter = 70
         val enabledForProject = true
@@ -18,29 +18,29 @@ object PluginSettings: IdeaSettings(nameSpace = "clone_finder") {
         val minFragment = 10
     }
 
-    val minFragment = defaults.minFragment
+    val minFragment = Defaults.minFragment
 
-    var enableGaps by BooleanProperty(defaults.enableGaps)
+    var enableGaps by BooleanProperty(Defaults.enableGaps)
 
-    var maxMemory by IntProperty(defaults.maxMemory)
+    var maxMemory by IntProperty(Defaults.maxMemory)
 
-    var minCloneLength by IntProperty(defaults.minCloneLength)
+    var minCloneLength by IntProperty(Defaults.minCloneLength)
 
-    var coverageSkipFilter by IntProperty(defaults.coverageSkipFilter)
+    var coverageSkipFilter by IntProperty(Defaults.coverageSkipFilter)
 
-    var enabledForProject by BooleanProperty(defaults.enabledForProject, projectScope = true)
+    var enabledForProject by BooleanProperty(Defaults.enabledForProject, projectScope = true)
 
-    var disableTestFolder by BooleanProperty(defaults.disableTestFolder)
+    var disableTestFolder by BooleanProperty(Defaults.disableTestFolder)
 
-    var kotlinSearchEnabled by BooleanProperty(defaults.kotlinSearchEnabled)
+    var kotlinSearchEnabled by BooleanProperty(Defaults.kotlinSearchEnabled)
 
-    var javaSearchEnabled by BooleanProperty(defaults.javaSearchEnabled)
+    var javaSearchEnabled by BooleanProperty(Defaults.javaSearchEnabled)
 
     fun reset(){
-        minCloneLength = defaults.minCloneLength
-        coverageSkipFilter = defaults.coverageSkipFilter
-        enabledForProject = defaults.enabledForProject
-        disableTestFolder = defaults.disableTestFolder
+        minCloneLength = Defaults.minCloneLength
+        coverageSkipFilter = Defaults.coverageSkipFilter
+        enabledForProject = Defaults.enabledForProject
+        disableTestFolder = Defaults.disableTestFolder
     }
 }
 

@@ -71,7 +71,7 @@ fun List<FileDuplicate>.unite(): List<Pair<Int, Int>>{
     val list = ArrayList<Pair<Int, Int>>()
     var current = 0
     do {
-        var lastUnitable = findLastUnitable(current)
+        val lastUnitable = findLastUnitable(current)
         if (lastUnitable != null) {
             list.add(current to lastUnitable)
         } else {

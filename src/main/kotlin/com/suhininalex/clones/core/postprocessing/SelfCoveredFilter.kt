@@ -46,7 +46,7 @@ private fun Clone.scoreSelfCoverage(): Double {
              .flatMap { it.clones.toList() }
              .map{ IntRange(indexMap[it.firstPsi]!!, indexMap[it.lastPsi]!!) }
              .uniteRanges()
-             .sumBy { it.length }
+             .sumOf { it.length }
      return length.toDouble()/sequence.size
 }
 
@@ -56,5 +56,5 @@ private fun SuffixTree<SourceToken>.haveTooMuchClones(sourceLength: Int) =
 
 private fun CloneClass.scoreSameMethod(): Double {
     val mostPopularMethodNumber = clones.map{ it.firstPsi.method }.groupBy { it }.map { it.value.size }.max()
-    return (mostPopularMethodNumber!!-1)/(size-1).toDouble()
+    return (mostPopularMethodNumber -1)/(size-1).toDouble()
 }

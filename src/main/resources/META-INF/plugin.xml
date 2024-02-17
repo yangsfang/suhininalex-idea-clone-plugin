@@ -47,5 +47,7 @@
       <postStartupActivity implementation="com.suhininalex.clones.ide.PluginInitializer" />
       <applicationConfigurable instance="com.suhininalex.clones.ide.configuration.PluginConfigurable" groupId="tools"
                                displayName="Duplicated Code Detector"/>
+      <notificationGroup id="Duplicated Code Detection Memory Warning"
+                         displayType="BALLOON" />
   </extensions>
 </idea-plugin>

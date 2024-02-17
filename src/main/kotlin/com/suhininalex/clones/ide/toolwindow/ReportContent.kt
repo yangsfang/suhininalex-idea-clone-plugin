@@ -7,9 +7,11 @@ import com.intellij.diff.DiffRequestPanel
 import com.intellij.diff.contents.DiffContent
 import com.intellij.diff.requests.SimpleDiffRequest
 import com.intellij.openapi.ui.VerticalFlowLayout
+import com.intellij.ui.JBColor
 import com.intellij.ui.JBSplitter
 import com.intellij.ui.OnePixelSplitter
 import com.intellij.ui.components.JBPanel
+import com.intellij.ui.components.JBScrollPane
 import com.intellij.ui.components.JBSlidingPanel
 import com.suhininalex.clones.core.structures.Clone
 import com.suhininalex.clones.core.utils.*
@@ -26,7 +28,7 @@ fun createPanel(clones: List<Clone>): JPanel {
     val left = createLeftPanel(cloneReports)
     val diffController = DiffController(left = cloneReports[0], right = cloneReports[1])
     assignDiffMouseHandlers(diffController, cloneReports)
-    panel.firstComponent = JScrollPane(left)
+    panel.firstComponent = JBScrollPane(left)
     panel.secondComponent = diffController.component
     panel.proportion = 0.20f
     return panel
@@ -85,7 +87,7 @@ class CloneReport(val clone: Clone): JPanel() {
 
     fun invalidateClone(){
         description.text = "INVALID"
-        description.foreground = Color.RED
+        description.foreground = JBColor.RED
     }
 
     init{
