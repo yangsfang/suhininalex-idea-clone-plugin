@@ -1,0 +1,28 @@
+name: Build
+
+on: [push]
+
+jobs:
+  # https://github.com/gradle/gradle-build-action
+  build:
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v4
+      - name: Setup Java and Gradle
+        uses: actions/setup-java@v4
+        with:
+          distribution: adopt-hotspot
+          java-version: 17
+          cache: gradle
+      - name: Run tests
+        run: ./gradlew :test
+      - name: Build package
+        run: ./gradlew :buildPlugin
+      - name: Archive plugin
+        uses: actions/upload-artifact@v4
+        with:
+          name: plugin
+          path: build/distributions
+          overwrite: true
