@@ -17,7 +17,7 @@ repositories {
 dependencies {
     implementation "nl.komponents.kovenant:kovenant-core:3.3.0"
     implementation "org.jetbrains.kotlin:kotlin-stdlib"
-    implementation fileTree(dir: 'lib', include: 'suffixtree-0.1.jar')
+    implementation fileTree(dir: 'lib', include: 'suffixtree-2.0.0.jar')
     implementation fileTree(dir: 'lib', include: 'union-find-set-1.0.jar')
 }
 
